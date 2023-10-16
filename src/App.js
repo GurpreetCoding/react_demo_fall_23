@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
 import Body from './components/Body';
+import BodyHooks from './components/BodyHooks';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         // location="/home"
       />
       <Body />
+      <BodyHooks />
 
     </div>
   );

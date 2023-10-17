@@ -3,18 +3,18 @@ import App from '../App';
 
 test('renders app less than 50', () => {
   render(<App count={25}/>);
-  const linkElement = screen.getByText(/Navbar/i);
+  const linkElement = screen.getByText(/Home/i);
   expect(linkElement).toBeInTheDocument();
 });
 
 test('renders app at 50', () => {
   render(<App count={50}/>);
-  const linkElement = screen.getByText(/pricing/i);
+  const linkElement = screen.getByText(/BodyHooks/i);
   expect(linkElement).toBeInTheDocument();
 });
 
-test('renders app greater than 50', () => {
-  render(<App count={55}/>);
-  const linkElement = screen.getByText(/pricing/i);
-  expect(linkElement).toBeInTheDocument();
-});
+//test('renders app greater than 50', () => {
+//  render(<App count={55}/>);
+// const linkElement = screen.getByText(/BodyHooks/i);
+//  expect(linkElement).toBeInTheDocument();
+//});

@@ -1,26 +1,42 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+
 function IndexRoute() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=u1s1yIgXpnpgjluJiHDtPRW3gEkZpTfEWcUFr0Gf')
+      .then(response => {
+        setPosts(response.data);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  })
+
     return(
-        <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="..."/>
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..."/>
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="..."/>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+      <React.Fragment>
+        <div class="container">
+          <div class="row-4">
+            <div class="column">
+            <p>{posts.title} created on {posts.date}</p>
+            </div>
+            <div class="column">
+              <img src ={posts.url} alt= "Nasa API Image" width="300" height="300"></img>
+            </div>
+            <div class="column">
+              <br></br>
+              <p>
+                {posts.explanation}
+              </p>
+              <br></br>
+            </div>
+          </div>
+          
+        </div>  
+      </React.Fragment>
     )
 }
 

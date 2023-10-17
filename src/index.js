@@ -20,11 +20,11 @@ const router = createBrowserRouter([
         element: <IndexRoute />
       },
       {
-        path: "hooks",
+        path: "/hooks",
         element: <BodyHooks />,
       },
       {
-        path: "classState",
+        path: "/body",
         element: <Body />,
       },
     ],
